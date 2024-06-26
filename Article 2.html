@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="article styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOI Newspapers</title>
+</head>
+<body>
+    <header>
+            <div class="menu-toggle" onclick="toggleSidebar()">
+                <div class="menu-icon"></div>
+            </div>
+            <div class="menu-toggle1" onclick="toggleSidebar()">
+                <div class="menu-icon"></div>
+            </div>
+            <div class="menu-toggle2" onclick="toggleSidebar()">
+                <div class="menu-icon"></div>
+            </div>
+        </div>
+        <div class="titel">
+            <a class="homeLink" href="ho.html"><b>HOI Newspapers</b></a>
+        </div>
+    </header>
+    <div class="sidebar">
+        <a href="index.html">Home</a>
+        <a href="Article 1.html">Introducing the HOI group.</a>
+        <a href="Article 2.html">The favourite books of the HOI group.</a>
+        <a href="Article 3.html">News Article</a>
+    </div>
+    <div class="article">
+        <h2>The favourite books of the HOI group.</h2>
+        <h3>Almere, 19-6-2024</h3>
+        <p>First, the favourite book of Olivier. "It's the serie called: The ministry of solutions, written by Sanne Roosenboom. The Genre is Detective. I think people that like adventurous, exciting and funny books should read the serie because it's all of that in one and it's really funny. The book is about a group of 4 Children, and 2 elderly women who run a ministery that has been re-established. They search for solutions for people completely in secret. They also have an enemy, the silvermen who try to expose the ministery. <br><br> Then the favourite book of Ibrahim. It's a serie of three books called "Podkin Eenoor", written by Kieran Larwood. The genre is Childhood Fantasy. People who like books about rabbits in combination with dangerous things, will absolutely like this book! It's about 3 rabbits who flee from rabits called "the Groms". The Groms have come into contact with iron, which has made them evil, because every rabbit that comes into contact with iron becomes evil and wants the other rabbit to become like them, if necessary by force. Podkin want to stop, also because they killed his father.  <br><br> And lastly the favourite book of Harry. It's one of the book series: Ranger's Apprentice, especially the first book, "The Ruins of Gorlan." Even though reading isn't really my thing, I found something enjoyable in that book. The story of Will, the young orphan who dreams of becoming a knight but ends up taking the path of a Ranger, really resonates with me. The tension and adventures, combined with the growth of the characters and the strong friendships, make the book captivating. John Flanagan's writing style is engaging and grabs you from the start. It encouraged me to keep reading and explore more of the series. I also liked how the story was built.</p>
+    </div>
+    <footer>
+        <p>&copy; 2024 HOI Newspapers</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let articles = document.querySelectorAll(".article");
+            let options = {
+                threshold: 0.1
+            };
+
+            let observer = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = "0.3s";
+                        entry.target.style.animationName = "slideUp";
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, options);
+
+            articles.forEach(article => {
+                observer.observe(article);
+            });
+        });
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('visible');
+        }
+    </script>
+</html>

@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="article styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOI Newspapers</title>
+</head>
+<body>
+    <header>
+            <div class="menu-toggle" onclick="toggleSidebar()">
+                <div class="menu-icon"></div>
+            </div>
+            <div class="menu-toggle1" onclick="toggleSidebar()">
+                <div class="menu-icon"></div>
+            </div>
+            <div class="menu-toggle2" onclick="toggleSidebar()">
+                <div class="menu-icon"></div>
+            </div>
+        </div>
+        <div class="titel">
+            <a class="homeLink" href="home.html"><b>HOI Newspapers</b></a>
+        </div>
+    </header>
+    <div class="sidebar">
+        <a href="home.html">Home</a>
+        <a href="Article 1.html">Introducing the HOI group.</a>
+        <a href="Article 2.html">The favourite books of the HOI group.</a>
+        <a href="Article 3.html">News Article</a>
+    </div>
+    <div class="article">
+        <h2>Introducing the HOI group.</h2>
+        <h3>Almere, 19-6-2024</h3>
+        <p>Harry Jia (12), Olivier Pelsers (13) and Ibrahim Yahya Eweida (12) are also known as the <i>HOI</i> group. I went on and spoke with them about the Oostvaarders College. <br> <br>First I spoke with Olivier. Why did you join the plus class? "Well I was searching for secondary schools a while ago and I was doubting between the OVC and the HP. I went to an open day of both and the plus class stood out to me." What did you expect from Cambridge English in the plus class? "I expected it to be a harder version of English, and it was. I also thought that if you still found English a little hard they would help you personally. So getting extra lessons with content you don't understand so you will eventually get a better grade." What did you learn about year 1 plus class Cambidge English. "I learned a lot, form things like the present simple, present past, and a lot more." Will you continue the plus class for the second year? "Yes, I really like the plus class and I will continue as long as I can." <br> <br>Then in spoke with Ibrahim. Do you like this CEN class? "Yes I really like my CEN class because MR. Weyts is a good teacher and this class is not as weird as the other class." Why is MR. Weyts a good teacher? "Because he gives really good lessons and writes a lot of information on the whiteboard, so I can follow the lesson on my speed, and can learn better." My last question to you: How do you like the teacher from the class, Ms. Harrison? "Ms. Harrison is a good teacher, she is really quiet and I like that because I am not proffesional at English, so when a teacher is giving his/her lessons really quick, I don't understand it."<br><br>Lastly I spoke with Harry. "Why did you join the plus class? "I was hesitating between the OVC and HP. But I chose OVC because there was the plus class. I thought it was better for my surroundings. The plus class was good and perfect for me, because I thought that it was too messy in the HP, I didn't like it there". I also expected a better and harder level for my english classes. Because in the HP the classes were not as good as the OVC. In the HP there were many bullies and poeple I don't like, so I better choose the OVC for more challenge. But I wanted both so much, because there was an Technasium in the HP. Technasium is an extra subject that I liked very much. In the OVC there were also Tech things but the HP had better Tech classes. But I choose OVC for better surroundings.</p>
+    </div>
+    <footer>
+        <p>&copy; 2024 HOI Newspapers</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let articles = document.querySelectorAll(".article");
+            let options = {
+                threshold: 0.1
+            };
+
+            let observer = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = "0.3s";
+                        entry.target.style.animationName = "slideUp";
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, options);
+
+            articles.forEach(article => {
+                observer.observe(article);
+            });
+        });
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('visible');
+        }
+    </script>
+</html>

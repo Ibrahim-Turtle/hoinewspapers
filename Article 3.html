@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="article styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOI Newspapers</title>
+</head>
+<body>
+    <header>
+            <div class="menu-toggle" onclick="toggleSidebar()">
+                <div class="menu-icon"></div>
+            </div>
+            <div class="menu-toggle1" onclick="toggleSidebar()">
+                <div class="menu-icon"></div>
+            </div>
+            <div class="menu-toggle2" onclick="toggleSidebar()">
+                <div class="menu-icon"></div>
+            </div>
+        </div>
+        <div class="titel">
+            <a class="homeLink" href="home.html"><b>HOI Newspapers</b></a>
+        </div>
+    </header>
+    <div class="sidebar">
+        <a href="home.html">Home</a>
+        <a href="Article 1.html">Introducing the HOI group.</a>
+        <a href="Article 2.html">The favourite books of the HOI group.</a>
+        <a href="Article 3.html">News Article</a>
+    </div>
+    <div class="article">
+        <h2>News Article</h2>
+        <h3>Almere, 19-6-2024</h3>
+        <p><b>Man Arrested for Planning Murder in Rotterdam, Multiple Shootings</b><br><br>A 29-year-old man has been arrested for planning a murder in Rotterdam, attempted murder in Amsterdam, and shootings at several locations. This follows a deal with a new key witness, who provided information on multiple murders for reduced sentences and protection.<br><br>The suspect is also linked to a 2020 armed robbery and shootings at a travel agency in The Hague, a restaurant in Haarlem, a nightclub in Amsterdam, and a residence in Eindhoven. The Rotterdam murder plot targeted a 39-year-old man. Authorities may make more arrests.<br><br>The key witness, Dominique K., sentenced to 15 years for a 2020 murder, gave critical information on his and others' roles. The deal was approved by the College of Attorneys General and reviewed by an Amsterdam magistrate.</p>
+    </div>
+    <footer>
+        <p>&copy; 2024 HOI Newspapers</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let articles = document.querySelectorAll(".article");
+            let options = {
+                threshold: 0.1
+            };
+
+            let observer = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = "0.3s";
+                        entry.target.style.animationName = "slideUp";
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, options);
+
+            articles.forEach(article => {
+                observer.observe(article);
+            });
+        });
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('visible');
+        }
+    </script>
+</html>

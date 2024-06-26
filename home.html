@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOI Newspapers Home</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #d3e0ea;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            top: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            padding: 20px 20px 10px; /* Added top padding */
+            color: #fff;
+            background: #0a81ab;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 1.8em;
+        }
+
+        header h1 {
+            font-size: 2em;
+            margin: 0;
+            display: inline-block;
+            cursor: pointer;
+            vertical-align: middle; /* Align vertically */
+        }
+
+        .menu-toggle {
+            display: block;
+            position: absolute;
+            top: 30px; /* Adjusted top position */
+            left: 20px;
+            cursor: pointer;
+            z-index: 3; /* Ensure toggle is above header */
+        }
+
+        .menu-toggle1 {
+            display: block;
+            position: absolute;
+            top: 15px; /* Adjusted top position */
+            left: 20px;
+            cursor: pointer;
+            z-index: 3; /* Ensure toggle is above header */
+        }
+
+        .menu-toggle2 {
+            display: block;
+            position: absolute;
+            top: 45px; /* Adjusted top position */
+            left: 20px;
+            cursor: pointer;
+            z-index: 3; /* Ensure toggle is above header */
+        }
+
+        .menu-icon {
+            width: 40px;
+            height: 3px;
+            background: #fff;
+            margin-bottom: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-icon.open {
+            transform: rotate(45deg);
+        }
+
+        .menu-icon::before,
+        .menu-icon::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: #fff;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-icon::before {
+            transform-origin: left top;
+        }
+
+        .menu-icon::after {
+            transform-origin: left bottom;
+        }
+
+        .menu-icon.open::before {
+            transform: rotate(90deg) translateX(3px);
+        }
+
+        .menu-icon.open::after {
+            transform: rotate(-90deg) translateX(3px);
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 200px; /* Smaller width */
+            position: fixed;
+            top: 0;
+            left: -200px; /* Initial position outside screen */
+            background: #0a81ab;
+            overflow-x: hidden;
+            transition: left 0.3s ease-out;
+            padding-top: 60px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            z-index: 1; /* Ensure sidebar stays below header */
+        }
+
+        .sidebar.visible {
+            left: 0; /* Ensure sidebar is visible when expanded */
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 1.3em; /* Adjusted font size */
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background: #264653;
+        }
+
+        .content {
+            margin-left: 0;
+            transition: margin-left 0.3s ease-out;
+            padding: 20px;
+            margin-top: 85px;
+            text-align: center;
+            flex: 1;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #fff;
+            background: #0a81ab;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .titel {
+            margin-bottom: 10px;
+        }
+
+        .homeLink {
+            list-style-type: none;
+            text-decoration: none;
+            color: white;
+            font-size: 1em;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="menu-toggle" onclick="toggleSidebar()">
+                <div class="menu-icon"></div>
+            </div>
+            <div class="menu-toggle1" onclick="toggleSidebar()">
+                <div class="menu-icon"></div>
+            </div>
+            <div class="menu-toggle2" onclick="toggleSidebar()">
+                <div class="menu-icon"></div>
+            </div>
+            <div class="titel">
+                <a class="homeLink" href="index.html"><b>HOI Newspapers</b></a>
+            </div>
+        </header>
+
+        <div class="sidebar">
+            <a href="home.html">Home</a>
+            <a href="Article 1.html">Introducing the HOI group.</a>
+            <a href="Article 2.html">The favourite books of the HOI group.</a>
+            <a href="Article 3.html">News Article</a>
+        </div>
+
+        <div class="content">
+            <p>This is the homepage of HOI Newspapers, you can see all our articles in the sidebar. <br>You can open the sidebar by clicking on one of the three stripes in the top-left corner.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 HOI Newspapers</p>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('visible');
+        }
+    </script>
+</html>
